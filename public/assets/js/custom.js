@@ -10,15 +10,27 @@
 
     // });
 
+    new WOW().init();
+
     $(function () {
-        // 當頁面加載完成後，將 id="main" 的區域自動滾動到可視範圍內
-        $("html, body").animate(
-            {
-                scrollTop: $("#main").offset().top - $('.site-navbar').height(),
-                //
-            },
-            1000
-        ); // 1000 毫秒（1 秒）滾動到該區域
+        $('#hero').css({
+            marginTop: $(".site-navbar").height(),
+        });
+        setTimeout(function () {
+            var siteNavbar = $(".site-navbar");
+            var siteNavbarHeight = siteNavbar.height() || 73.5; // 提供預設值
+            console.log("Navbar height after delay:", siteNavbarHeight); // 除錯用
+
+            // 確保 #main 元素存在
+            if ($("#main").length && siteNavbar.length) {
+                $("html, body").animate(
+                    {
+                        scrollTop: $("#main").offset().top - siteNavbarHeight,
+                    },
+                    1000
+                );
+            }
+        }, 500); // 500毫秒延遲
 
         // Back to top button
         $(window).scroll(function () {
@@ -35,13 +47,13 @@
             return false;
         });
 
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $(".site-navbar").addClass("scrolled");
-            } else {
-                $(".site-navbar").removeClass("scrolled");
-            }
-        });
+        // $(window).on("scroll", function () {
+        //     if ($(window).scrollTop() > 300) {
+        //         $(".site-navbar").addClass("fixed-top");
+        //     } else {
+        //         $(".site-navbar").removeClass("fixed-top");
+        //     }
+        // });
 
         // $(window)
         //     .resize(function () {

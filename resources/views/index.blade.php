@@ -86,20 +86,24 @@
                                 <h4 class="text-028cd3 mb-1">產品介紹</h4>
                                 <p class="text-26 font-weight-light text-uppercase mb-0">Products</p>
                             </div>
-                            <div class="sc-more-content d-lg-none d-flex flex-row align-items-center w-fit">
-                                <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
-                                    alt="">
-                                <p class="mb-0 text-028cd3">更多產品介紹</p>
-                            </div>
+                            <a href="{{ route('products') }}">
+                                <div class="sc-more-content d-lg-none d-flex flex-row align-items-center w-fit">
+                                    <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
+                                        alt="">
+                                    <p class="mb-0 text-028cd3">更多產品介紹</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="pro-line mx-lg-4 my-lg-0 my-3"></div>
                         <p class="text-51 font-weight-normal mb-0">承鈺住宅設備為您打造智慧、健康、便利的理想家居！</p>
                     </div>
 
-                    <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit">
-                        <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
-                        <p class="mb-0 text-028cd3">更多產品介紹</p>
-                    </div>
+                    <a href="{{ route('products') }}">
+                        <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit">
+                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
+                            <p class="mb-0 text-028cd3">更多產品介紹</p>
+                        </div>
+                    </a>
 
                 </div>
                 <!-- product header end -->
@@ -268,21 +272,25 @@
                             <p class="text-26 font-weight-light text-uppercase mb-0">News</p>
                             <div class="sc-title-line my-2 d-lg-block d-none"></div>
                         </div>
-                        <div class="sc-more-content d-lg-none d-flex flex-row align-items-center w-fit px-0 mx-0">
-                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
-                                alt="">
-                            <p class="mb-0 text-028cd3">更多消息</p>
-                        </div>
+                        <a href="{{ route('news') }}">
+                            <div class="sc-more-content d-lg-none d-flex flex-row align-items-center w-fit px-0 mx-0">
+                                <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
+                                    alt="">
+                                <p class="mb-0 text-028cd3">更多消息</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="news-line mx-lg-4 my-lg-0 my-3 d-lg-none d-block"></div>
                     <p class="text-51 font-weight-light mb-0">
                         掌握最新動態<br class="d-lg-block d-none">
                         家居生活更美好！
                     </p>
-                    <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit px-0 mx-0">
-                        <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
-                        <p class="mb-0 text-028cd3">更多消息</p>
-                    </div>
+                    <a href="{{ route('news') }}">
+                        <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit px-0 mx-0">
+                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
+                            <p class="mb-0 text-028cd3">更多消息</p>
+                        </div>
+                    </a>
 
                 </div>
 
@@ -471,10 +479,12 @@
 
             <div class="row justify-content-center align-items-center">
                 <div class="col-auto mt-4">
-                    <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
-                        <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
-                        <p class="mb-0 text-028cd3 font-weight-normal">更多工程實績</p>
-                    </div>
+                    <a href="{{ route('cases') }}">
+                        <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
+                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
+                            <p class="mb-0 text-028cd3 font-weight-normal">更多工程實績</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -510,11 +520,13 @@
 
                                 </p>
                                 <div class="col-auto mt-4 px-0 mx-0">
-                                    <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
-                                        <img src="{{ 'assets/images/00-hp/button_arrow.png' }}" class="img-fluid"
-                                            alt="">
-                                        <p class="mb-0 text-028cd3 font-weight-normal">更多公司簡介</p>
-                                    </div>
+                                    <a href="{{ route('about') }}">
+                                        <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
+                                            <img src="{{ 'assets/images/00-hp/button_arrow.png' }}" class="img-fluid"
+                                                alt="">
+                                            <p class="mb-0 text-028cd3 font-weight-normal">更多公司簡介</p>
+                                        </div>
+                                    </a>
                                 </div>
 
                             </div>

@@ -21,7 +21,7 @@
     </div>
 
     <div class="container-xxl py-4 mb-5">
-        <div class="container" id="sc-news">
+        <div class="container" id="sc-catalog">
             <div class="row">
                 <div class="col-12 d-flex justify-content-end" data-aos="fade-up" data-aos-delay="200">
                     <p class="text-028cd3 font-weight-light" style="font-size: 14px;">

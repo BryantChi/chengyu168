@@ -1174,3 +1174,86 @@ p {
 .hp-catalog-pic {
     border: 12px solid #e7f7ff;
 }
+
+
+.fixed-top {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+
+.bg-cooperate {
+    background: url(../images/06/06right_b1024.jpg) no-repeat bottom right;
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .bg-cooperate {
+        background-color: #f3f9ff;
+        background-image: url(../images/06/06right_b720.jpg);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .bg-cooperate {
+        background: url(../images/06/06right_b1024.jpg) no-repeat bottom right;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .bg-cooperate {
+        background: url(../images/06/06right_b1280.jpg) no-repeat bottom right;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+    .bg-cooperate {
+        background: url(../images/06/06right_b1440.jpg) no-repeat bottom right;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bg-cooperate {
+        background: url(../images/06/06right_b1920.jpg) no-repeat bottom right;
+        background-size: cover;
+    }
+}
+
+.text-f74300 {
+    color: #f74300 !important;
+}
+.bg-f74300 {
+    background-color: #f74300 !important;
+}
+
+.btn-028cd3 {
+    background-color: #028cd3 !important;
+    color: #fff !important;
+    border: 1px solid #028cd3 !important;
+}
+
+.btn-028cd3:hover, .btn-028cd3:active, .btn-028cd3:focus {
+    background-color: #fff !important;
+    color: #028cd3 !important;
+    border: 1px solid #028cd3 !important;
+}
+
+.btn-outline-028cd3 {
+    background-color: #fff !important;
+    color: #028cd3 !important;
+    border: 1px solid #028cd3 !important;
+}
+.btn-outline-028cd3:hover, .btn-outline-028cd3:active, .btn-outline-028cd3:focus {
+    background-color: #028cd3 !important;
+    color: #fff !important;
+    border: 1px solid #028cd3 !important;
+}

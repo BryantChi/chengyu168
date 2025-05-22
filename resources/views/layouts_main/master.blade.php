@@ -118,7 +118,10 @@
     <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/js/aos.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/aos.js') }}"></script> --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{-- wow cdn --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
     <script src="{{ asset('assets/js/main.js') }}?v={{ time() }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}?v={{ time() }}"></script>
@@ -126,7 +129,7 @@
 
 
     <script>
-        new WOW().init();
+
         $(document).ready(function() {});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

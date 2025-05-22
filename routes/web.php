@@ -60,6 +60,10 @@ Route::get('catalog', function (){
     return view('catalog');
 })->name('catalog');
 
+Route::get('cooperate', function (){
+    return view('cooperate');
+})->name('cooperate');
+
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();

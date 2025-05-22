@@ -8,13 +8,13 @@
 </div>
 
 
-<header class="site-navbar py-1" role="banner">
+<header class="site-navbar bg-white py-1 fixed-top" role="banner">
 
     <div class="container">
         <div class="row justify-content-lg-center align-items-center">
 
             <div class="col-8 col-xl-3" data-aos="fade-down">
-                <h1 class="mb-0"><a href="" class="text-black h2 mb-0">
+                <h1 class="mb-0"><a href="{{ route('index') }}" class="text-black h2 mb-0">
                         <img src="{{ asset('assets/images/00-hp/top_logo.svg') }}" alt="Logo" class="img-fluid">
                     </a></h1>
             </div>
@@ -27,7 +27,7 @@
                         <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{ route('products') }}">產品介紹</a></li>
                         <li class="{{ Request::is('/cases') ? 'active' : '' }}"><a href="{{ route('cases') }}">工程實績</a></li>
                         <li class="{{ Request::is('/catalog') ? 'active' : '' }}"><a href="{{ route('catalog') }}">產品型錄</a></li>
-                        <li><a href="">合作廠商</a></li>
+                        <li class="{{ Request::is('/cooperate') ? 'active' : '' }}"><a href="{{ route('cooperate') }}">廠商合作</a></li>
                         <li>
                             <a href="#" class="text-028cd3" target="_blank"
                                 style="color: #028cd3 !important;"><span class="icon-facebook"></span></a>
