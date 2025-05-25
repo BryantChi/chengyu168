@@ -20,15 +20,15 @@
         </div>
     </div>
 
-    <div class="container-xxl py-4 mb-5">
+    <div class="container-xxl py-4 mb-5 mt-5">
         <div class="container" id="sc-news">
 
             <div class="row">
                 <div class="col-12 mb-4">
                     <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-51 news-title h4">{{ $news->title ?? 'H&H 週年慶 | 馬桶免費基本安裝活動 開跑！' }}</h3>
+                        <h3 class="text-51 news-title h4">{{ $newsInfo->title ?? 'H&H 週年慶 | 馬桶免費基本安裝活動 開跑！' }}</h3>
                         <p class="text-028cd3 font-weight-light mb-0" style="font-size: 13px;">
-                            {{ \Carbon\Carbon::parse($news->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
+                            {{ \Carbon\Carbon::parse($newsInfo->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
                             {{ '觀看人數: 123' }}
                         </p>
                     </div>
@@ -36,11 +36,11 @@
 
                 <div class="col-12 mb-4">
                     <div class="cases-content text-e9 font-weight-light" data-aos="fade-up" data-aos-delay="200">
-                        @if ($news->content ?? null != null)
-                            {!! $news->content ?? '' !!}
+                        @if ($newsInfo->content ?? null != null)
+                            {!! $newsInfo->content ?? '' !!}
                         @endif
 
-                        @if ($news->content ?? null == null)
+                        @if ($newsInfo->content ?? null == null)
                             <p class="text-51 font-weight-normal">
                                 感謝您的支持，H&H 週年慶大放送！即日起，凡購買 指定款馬桶，即可享有 免費基本安裝<br>
                                 服務，讓您輕鬆升級舒適衛浴空間！<br><br>

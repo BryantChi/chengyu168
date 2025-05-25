@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="container-xxl pt-4 pb-5 my-3">
+    <div class="container-xxl pt-4 pb-5 mb-3 mt-5">
         <div class="container" id="sc-product">
 
             <div class="row">
@@ -50,10 +50,12 @@
                                     </a>
                                 </li>
                             @endforeach
-                            <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">廚具規劃</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">衛浴設備</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">廁所修改</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">淨水設備</a></li>
+                            @if (count($categories ?? []) == 0)
+                                <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">廚具規劃</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">衛浴設備</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">廁所修改</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">淨水設備</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -61,9 +63,9 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                                <h3 class="text-51 cases-title h4">{{ $cases->title ?? '李府廚房設計規劃' }}</h3>
+                                <h3 class="text-51 cases-title h4">{{ $case->title ?? '李府廚房設計規劃' }}</h3>
                                 <p class="text-028cd3 font-weight-light mb-0" style="font-size: 13px;">
-                                    {{ \Carbon\Carbon::parse($news->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
+                                    {{ \Carbon\Carbon::parse($case->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
                                     {{ '觀看人數: 123' }}
                                 </p>
                             </div>
@@ -71,11 +73,11 @@
 
                         <div class="col-12 mb-4">
                             <div class="cases-content text-e9 font-weight-light" data-aos="fade-up" data-aos-delay="200">
-                                @if ($cases->content ?? null != null)
+                                @if ($case->content ?? null != null)
                                     {!! $cases->content ?? '' !!}
                                 @endif
 
-                                @if ($cases->content ?? null == null)
+                                @if ($case->content ?? null == null)
                                     <p class="text-51 font-weight-normal">
                                         承鈺住宅設備有限公司深耕住宅設備規劃與安裝，憑藉專業設計與精湛施工，成功完成多項住宅與商業空間的廚
                                         房改造工程。<br>

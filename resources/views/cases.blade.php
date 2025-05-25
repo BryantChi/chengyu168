@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12 d-flex justify-content-end" data-aos="fade-up" data-aos-delay="200">
                     <p class="text-028cd3 font-weight-light" style="font-size: 14px;">
-                        共 9 則案例
+                        共 {{ count($cases) }} 則案例
                     </p>
                 </div>
             </div>
@@ -57,163 +57,94 @@
                                     </a>
                                 </li>
                             @endforeach
-                            <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">廚具規劃</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">衛浴設備</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">廁所修改</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">淨水設備</a></li>
+                            @if (count($categories) == 0)
+                                <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">廚具規劃</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">衛浴設備</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">廁所修改</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">淨水設備</a></li>
+                            @endif
+
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="row justify-content-center sc-case-list">
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <a href="{{ route('cases-details-mock') }}">
 
-                                        <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 衛浴空間</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
+                        @foreach ($cases ?? [] as $key => $case)
+                            <div class="col-lg-4 mb-4">
+                                <div class="case-item-box bg-f4">
+                                    <div class="case-item-img mb-1">
+                                        <a href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}">
+                                            <img src="{{ asset($case->image) }}" class="img-fluid" alt="">
+                                        </a>
                                     </div>
-                                    <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
-
-                                    <a href="{{ route('cases-details-mock') }}" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    <div class="case-item-content px-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <a href="{{ route('cases', ['category_id' => $case->category_id]) }}">
+                                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                                        class="icon-square text-028cd3"></span>
+                                                    {{ \App\Models\Admin\Category::find($case->category_id)->name }}</p>
+                                            </a>
+                                            <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次:
+                                                {{ $case->views }}</p>
                                         </div>
-                                    </a>
+                                        <a href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}">
+                                            <h5 class="text-51 case-item-title my-3">{{ $case->title }}</h5>
+                                        </a>
+                                        <a href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}"
+                                            class="case-item-more item-more-btn2 my-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                                <p class="text-white font-weight-normal mb-0">⟩</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
-                                        alt="">
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 廚具規劃</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
-                                    </div>
-                                    <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
-
-                                    <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
+                        {{-- Mockup items for demonstration --}}
+                        @if (count($cases) == 0)
+                            @for ($i = 0; $i < 9; $i++)
+                                <div class="col-lg-4 mb-4">
+                                    <div class="case-item-box bg-f4">
+                                        <div class="case-item-img mb-1">
+                                            <a href="{{ route('cases-details-mock') }}">
+                                                <img src="{{ asset('assets/images/00-hp/cases_pic' . (($i % 3) + 1) . '.jpg') }}"
+                                                    class="img-fluid" alt="">
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
-                                        alt="">
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 衛浴設備</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
-                                    </div>
-                                    <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
-
-                                    <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
+                                        <div class="case-item-content px-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <a href="{{ route('cases') }}">
+                                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                                            class="icon-square text-028cd3"></span> Mock Category</p>
+                                                </a>
+                                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次:
+                                                    {{ rand(100, 500) }}</p>
+                                            </div>
+                                            <a href="{{ route('cases-details-mock') }}">
+                                                <h5 class="text-51 case-item-title my-3">Mock Case Title
+                                                    {{ $i + 1 }}</h5>
+                                            </a>
+                                            <a href="{{ route('cases-details-mock') }}"
+                                                class="case-item-more item-more-btn2 my-3">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
-                                        alt="">
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 衛浴空間</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
                                     </div>
-                                    <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
-
-                                    <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
-                                        </div>
-                                    </a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
-                                        alt="">
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 廚具規劃</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
-                                    </div>
-                                    <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
-
-                                    <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mb-4">
-                            <div class="case-item-box bg-f4">
-                                <div class="case-item-img mb-1">
-                                    <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
-                                        alt="">
-                                </div>
-                                <div class="case-item-content px-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                                class="icon-square text-028cd3"></span> 衛浴設備</p>
-                                        <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
-                                    </div>
-                                    <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
-
-                                    <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                            <p class="text-white font-weight-normal mb-0">⟩</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            @endfor
+                        @endif
 
 
+                    </div>
+
+                    <div class="overflow-auto mb-3">
+                        {{ $cases->onEachSide(3)->links('layouts_main.custom-pagination') }}
                     </div>
                 </div>
             </div>

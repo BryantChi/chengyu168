@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12 d-flex justify-content-end" data-aos="fade-up" data-aos-delay="200">
                     <p class="text-028cd3 font-weight-light" style="font-size: 14px;">
-                        共 6 則消息
+                        共 6 項產品
                     </p>
                 </div>
             </div>

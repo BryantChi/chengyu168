@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="container-xxl pt-4 pb-5 my-3">
+    <div class="container-xxl pt-4 pb-5 mb-3 mt-5">
         <div class="container" id="sc-product">
 
             <div class="row">
