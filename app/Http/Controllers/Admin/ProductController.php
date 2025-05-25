@@ -16,6 +16,9 @@ class ProductController extends AppBaseController
     /** @var ProductRepository $productRepository*/
     private $productRepository;
 
+    // 設定每個產品的最大圖片數量
+    private const MAX_IMAGES_PER_PRODUCT = 10;
+
     public function __construct(ProductRepository $productRepo)
     {
         $this->productRepository = $productRepo;
@@ -51,6 +54,15 @@ class ProductController extends AppBaseController
 
         // 處理產品圖片上傳
         if ($request->hasFile('product_images')) {
+            // 檢查圖片數量
+            $uploadCount = count($request->file('product_images'));
+
+            // 如果超過最大數量，顯示錯誤
+            if ($uploadCount > self::MAX_IMAGES_PER_PRODUCT) {
+                Flash::error('每個產品最多只能有 '.self::MAX_IMAGES_PER_PRODUCT.' 張圖片');
+                return redirect()->back()->withInput();
+            }
+
             $this->saveProductImages($product, $request);
         }
 
@@ -106,14 +118,28 @@ class ProductController extends AppBaseController
 
         $product = $this->productRepository->update($request->all(), $id);
 
+        // 計算更新後的圖片數量
+        $existingImageCount = $product->images->count();
+        $deleteCount = $request->has('delete_images') ? count($request->delete_images) : 0;
+        $uploadCount = $request->hasFile('product_images') ? count($request->file('product_images')) : 0;
+
+        // 計算最終圖片數量
+        $finalImageCount = $existingImageCount - $deleteCount + $uploadCount;
+
+        // 檢查是否超過限制
+        if ($finalImageCount > self::MAX_IMAGES_PER_PRODUCT) {
+            Flash::error('每個產品最多只能有 '.self::MAX_IMAGES_PER_PRODUCT.' 張圖片');
+            return redirect()->back()->withInput();
+        }
+
         // 處理圖片刪除
         if ($request->has('delete_images')) {
             $this->deleteProductImages($request->delete_images);
         }
 
         // 處理圖片排序
-        if ($request->has('image_ids')) {
-            $this->updateImageSortOrders($request->image_ids);
+        if ($request->has('sort_orders')) {
+            $this->updateImageSortOrders($request->sort_orders);
         }
 
         // 處理新上傳的圖片
@@ -160,19 +186,21 @@ class ProductController extends AppBaseController
     private function saveProductImages($product, $request)
     {
         $files = $request->file('product_images');
+        $newSortOrders = $request->new_sort_orders ?? [];
         $maxSortOrder = ProductImage::where('product_id', $product->id)->max('sort_order') ?? 0;
 
         foreach ($files as $key => $file) {
             // 存儲圖片到儲存空間
             $path = $file->store('product_images', 'public');
 
-            // 儲存圖片記錄到資料庫，新上傳的圖片放到最後
-            $maxSortOrder++;
+            // 儲存圖片記錄到資料庫
+            $sortOrder = isset($newSortOrders[$key]) ? $newSortOrders[$key] : $maxSortOrder + 1;
+            $maxSortOrder = max($maxSortOrder, $sortOrder);
 
             ProductImage::create([
                 'product_id' => $product->id,
                 'image_path' => $path,
-                'sort_order' => $maxSortOrder
+                'sort_order' => $sortOrder
             ]);
         }
     }
@@ -198,12 +226,11 @@ class ProductController extends AppBaseController
     /**
      * 更新圖片排序（根據拖曳排序的結果）
      */
-    private function updateImageSortOrders($imageIds)
+    private function updateImageSortOrders($sortOrders)
     {
-        // 根據圖片在表單中出現的順序更新排序值
-        foreach ($imageIds as $index => $imageId) {
+        foreach ($sortOrders as $imageId => $sortOrder) {
             ProductImage::where('id', $imageId)
-                ->update(['sort_order' => $index]);
+                ->update(['sort_order' => $sortOrder]);
         }
     }
 }

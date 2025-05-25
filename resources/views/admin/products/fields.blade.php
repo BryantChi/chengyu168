@@ -35,7 +35,7 @@
             <label class="custom-file-label" for="product_images">選擇圖片（可多選）</label>
         </div>
     </div>
-    <small class="text-muted">可拖曳圖片進行排序</small>
+    <small class="text-muted">可拖曳圖片進行排序，<span id="remaining-count">剩餘可上傳: 10 張</span>，每個產品最多10張圖片</small>
 </div>
 
 <!-- 圖片預覽與排序區域 -->
@@ -103,9 +103,22 @@
             let selectedFiles = [];
             let fileIndices = {};
 
+            // 圖片數量限制
+            const MAX_IMAGES = 10;
+
             // 顯示檔案名稱
             $('.custom-file-input').on('change', function() {
                 const inputFiles = Array.from(this.files);
+
+                // 檢查總圖片數量是否會超過限制
+                const existingImageCount = $('.image-item').not('.new-image').not('.opacity-50').length;
+                const totalImagesAfterUpload = existingImageCount + inputFiles.length;
+
+                if (totalImagesAfterUpload > MAX_IMAGES) {
+                    alert(`每個產品最多只能有 ${MAX_IMAGES} 張圖片。目前已有 ${existingImageCount} 張，您選擇了 ${inputFiles.length} 張。`);
+                    resetFileInput();
+                    return;
+                }
 
                 // 儲存選擇的檔案
                 selectedFiles = inputFiles;
@@ -159,6 +172,25 @@
                 }
             }
 
+            // 在產品圖片區域顯示剩餘可上傳數量
+            function updateRemainingCount() {
+                const existingImageCount = $('.image-item').not('.opacity-50').length;
+                const remainingCount = MAX_IMAGES - existingImageCount;
+
+                $('#remaining-count').text(`剩餘可上傳: ${remainingCount} 張`);
+
+                // 如果已達上限，禁用上傳按鈕
+                if (remainingCount <= 0) {
+                    $('#product_images').prop('disabled', true);
+                    $('.custom-file-label').text('已達上傳上限');
+                } else {
+                    $('#product_images').prop('disabled', false);
+                }
+            }
+
+            // 初始更新剩餘數量
+            updateRemainingCount();
+
             // 初始化拖曳排序
             function initSortable() {
                 $('.sortable-container').sortable({
@@ -192,6 +224,9 @@
                 $(this).removeClass('btn-danger').addClass('btn-success').html(
                     '<i class="fas fa-undo"></i>');
                 $(this).removeClass('delete-image').addClass('restore-image');
+
+                // 更新剩餘可上傳數量
+                updateRemainingCount();
             });
 
             // 復原刪除現有圖片
@@ -207,6 +242,9 @@
                 $(this).removeClass('btn-success').addClass('btn-danger').html(
                     '<i class="fas fa-times"></i>');
                 $(this).removeClass('restore-image').addClass('delete-image');
+
+                // 更新剩餘可上傳數量
+                updateRemainingCount();
             });
 
             // 刪除新上傳的圖片預覽
@@ -243,6 +281,9 @@
                 if ($('.new-image').length === 0) {
                     resetFileInput();
                 }
+
+                // 更新剩餘可上傳數量
+                updateRemainingCount();
             });
 
             // 重置檔案選擇器
@@ -260,11 +301,23 @@
 
             // 表單提交前處理
             $('form').on('submit', function() {
+                // 檢查總圖片數量是否超過限制
+                const visibleImageCount = $('.image-item').not('.opacity-50').length;
+                const newImageCount = $('.new-image').length;
+
+                // 計算實際有效圖片數（現有未刪除 + 新上傳）
+                const activeImageCount = visibleImageCount - newImageCount + selectedFiles.length;
+
+                if (activeImageCount > MAX_IMAGES) {
+                    alert(`每個產品最多只能有 ${MAX_IMAGES} 張圖片，請刪除部分圖片後再提交。`);
+                    return false;
+                }
+
                 // 處理混合排序情況
                 let sortOrder = 0;
 
                 // 取得所有圖片元素（包括現有和新上傳的）
-                $('.sortable-container .image-item').each(function() {
+                $('.sortable-container .image-item').not('.opacity-50').each(function() {
                     // 檢查是否為現有圖片
                     const imageId = $(this).data('image-id');
                     if (imageId) {
@@ -285,6 +338,8 @@
 
                     sortOrder++;
                 });
+
+                return true;
             });
         });
     </script>
