@@ -92,7 +92,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('caseInfos', App\Http\Controllers\Admin\CaseInfoController::class, ["as" => 'admin']);
         Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class, ["as" => 'admin']);
         Route::resource('catalogs', App\Http\Controllers\Admin\CatalogController::class, ["as" => 'admin']);
-        Route::resource('product-types', App\Http\Controllers\Admin\ProductTypeController::class, ["as" => 'admin']);
+        Route::resource('productTypes', App\Http\Controllers\Admin\ProductTypeController::class, ["as" => 'admin']);
         Route::resource('products', App\Http\Controllers\Admin\ProductController::class, ["as" => 'admin']);
 
         // AJAX 預覽清洗結果的路由
