@@ -40,21 +40,25 @@
                     <div class="product-category" data-aos="fade-up" data-aos-delay="200">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link {{ empty(request('category_id')) ? 'active' : '' }}"
+                                <a class="nav-link {{ empty(request('product_type_id')) ? 'active' : '' }}"
                                     href="{{ route('products', ['search' => request('search')]) }}">全部</a>
                             </li>
-                            @foreach ($categories ?? [] as $category)
+                            @foreach ($product_types ?? [] as $type)
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request('category_id') == $category->id ? 'active' : '' }}"
-                                        href="{{ route('products', ['category_id' => $category->id, 'search' => request('search')]) }}">
-                                        {{ $category->name }}
+                                    <a class="nav-link {{ request('product_type_id') == $type->id || $selectedType == $type->id ? 'active' : '' }}"
+                                        href="{{ route('products', ['product_type_id' => $type->id, 'search' => request('search')]) }}">
+                                        {{ $type->name }}
                                     </a>
                                 </li>
                             @endforeach
-                            <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">全戶暖水系列</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">花灑龍頭</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">前置淨水系列</a></li>
-                            <li class="nav-item"><a class="nav-link" href="javascript:void(0);">浴室配件</a></li>
+
+                            @if (count($product_types) == 0)
+                                <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">全戶暖水系列</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">花灑龍頭</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">前置淨水系列</a></li>
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">浴室配件</a></li>
+                            @endif
+
                         </ul>
                     </div>
                 </div>
@@ -64,7 +68,13 @@
                             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                                 class="swiper mySwiper2">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    @foreach ($images ?? [] as $image)
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('uploads/' . $image->image_path) }}" class="img-fluid w-100" />
+                                        </div>
+
+                                    @endforeach
+                                    {{-- <div class="swiper-slide">
                                         <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg')}}" class="img-fluid w-100" />
                                     </div>
                                     <div class="swiper-slide">
@@ -81,7 +91,7 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -89,7 +99,12 @@
                             </div>
                             <div thumbsSlider="" class="swiper mySwiper mt-1">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    @foreach ($images ?? [] as $image)
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('uploads/' . $image->image_path) }}" class="img-fluid w-100" />
+                                        </div>
+                                    @endforeach
+                                    {{-- <div class="swiper-slide">
                                         <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg')}}" class="img-fluid w-100" />
                                     </div>
                                     <div class="swiper-slide">
@@ -106,18 +121,19 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 mb-lg-0 mb-3">
-                            <h5 class="text-26 font-weight-bold products-title">霧黑高腳臉盆龍頭</h5>
-                            <p class="text-51 font-weight-light products-info">
-                                質感升級，打造極致衛浴美學！<br>
+                            <h5 class="text-26 font-weight-bold products-title">{{ $product->title ?? '霧黑高腳臉盆龍頭' }}</h5>
+                            <div class="text-51 font-weight-light products-info">
+                                {{-- 質感升級，打造極致衛浴美學！<br>
                                 霧黑高腳臉盆龍頭以時尚極簡設計為特色，完美融入<br>
-                                現代衛浴空間，展現低調奢華質感。
-                            </p>
+                                現代衛浴空間，展現低調奢華質感。 --}}
+                                {{ $product->intro ?? '質感升級，打造極致衛浴美學！<br>霧黑高腳臉盆龍頭以時尚極簡設計為特色，完美融入<br>現代衛浴空間，展現低調奢華質感。' }}
+                            </div>
                             <a href="javascript:void(0);">
                                 <img src="{{ asset('assets/images/fimgs/line-chat.png') }}" class="img-fluid" width="180" alt="">
                             </a>
@@ -126,16 +142,17 @@
                             <h5 class="text-26 font-weight-bold products-detail-intro-title d-flex align-items-center">
                                 <img src="{{ asset('assets/images/03/03plus_inside.png') }}" class="img-fluid" alt=""> 詳細介紹
                             </h5>
-                            <div class="products-detail-intro">
+                            <div class="products-detail-intro text-51 font-weight-light">
+                                {!! $product->details ?? '' !!}
 
-                                <p class="text-51 font-weight-light">
+                                {{-- <p class="text-51 font-weight-light">
                                     ■ 優雅霧黑塗層|耐刮耐污，不易留下指紋，持久如新<br>
                                     ■ 一體成型設計|流線造型，搭配高腳設計，適用多種臉盆<br>
                                     ■ 順滑單槍控溫|輕鬆調整水溫與水量，使用更便利<br>
                                     ■ 高品質材質| 抗腐蝕、防鏽處理，確保長久耐用<br>
                                     ■ 柔和出水設計｜減少水花飛濺，節水更環保<br><br>
                                     更多詳細內容，歡迎您來電洽詢0934-325138/ 03-8580391
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                     </div>

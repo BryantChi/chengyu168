@@ -36,14 +36,14 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('admin.productTypes.index') }}" class="nav-link {{ Request::is('admin.productTypes*') ? 'active' : '' }}">
+    <a href="{{ route('admin.productTypes.index') }}" class="nav-link {{ Request::is('admin/productTypes*') ? 'active' : '' }}">
         <span class="mr-2 brand-image"><i class="fas fa-folder-open"></i></span>
         <p>產品分類</p>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('admin.products.index') }}" class="nav-link {{ Request::is('admin.products*') ? 'active' : '' }}">
+    <a href="{{ route('admin.products.index') }}" class="nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
         <span class="mr-2 brand-image"><i class="fas fa-box"></i></span>
         <p>產品</p>
     </a>

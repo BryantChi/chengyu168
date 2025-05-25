@@ -45,7 +45,7 @@ Route::get('news-details-mock', function (){
 })->name('news-details-mock');
 
 Route::get('products', [ProductsController::class, 'index'])->name('products');
-// Route::get('products/{id}', [ProductsController::class, 'show'])->name('products.show');
+Route::get('products/{id}', [ProductsController::class, 'show'])->name('products-details');
 Route::get('products-details-mock', function (){
     return view('products-details');
 })->name('products-details-mock');
@@ -92,6 +92,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('caseInfos', App\Http\Controllers\Admin\CaseInfoController::class, ["as" => 'admin']);
         Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class, ["as" => 'admin']);
         Route::resource('catalogs', App\Http\Controllers\Admin\CatalogController::class, ["as" => 'admin']);
+        Route::resource('product-types', App\Http\Controllers\Admin\ProductTypeController::class, ["as" => 'admin']);
+        Route::resource('products', App\Http\Controllers\Admin\ProductController::class, ["as" => 'admin']);
 
         // AJAX 預覽清洗結果的路由
         Route::post('/seo/preview', [App\Http\Controllers\Admin\SeoSettingController::class, 'preview'])->name('admin.seo.preview');
@@ -120,23 +122,23 @@ Route::post('/catalogs/increment-views', 'App\Http\Controllers\CatalogController
 //         'edit' => 'admin.catalogs.edit'
 //     ]);
 
-Route::resource('admin/product-types', App\Http\Controllers\Admin\ProductTypeController::class)
-    ->names([
-        'index' => 'admin.productTypes.index',
-        'store' => 'admin.productTypes.store',
-        'show' => 'admin.productTypes.show',
-        'update' => 'admin.productTypes.update',
-        'destroy' => 'admin.productTypes.destroy',
-        'create' => 'admin.productTypes.create',
-        'edit' => 'admin.productTypes.edit'
-    ]);
-Route::resource('admin/products', App\Http\Controllers\Admin\ProductController::class)
-    ->names([
-        'index' => 'admin.products.index',
-        'store' => 'admin.products.store',
-        'show' => 'admin.products.show',
-        'update' => 'admin.products.update',
-        'destroy' => 'admin.products.destroy',
-        'create' => 'admin.products.create',
-        'edit' => 'admin.products.edit'
-    ]);
+// Route::resource('admin/product-types', App\Http\Controllers\Admin\ProductTypeController::class)
+//     ->names([
+//         'index' => 'admin.productTypes.index',
+//         'store' => 'admin.productTypes.store',
+//         'show' => 'admin.productTypes.show',
+//         'update' => 'admin.productTypes.update',
+//         'destroy' => 'admin.productTypes.destroy',
+//         'create' => 'admin.productTypes.create',
+//         'edit' => 'admin.productTypes.edit'
+//     ]);
+// Route::resource('admin/products', App\Http\Controllers\Admin\ProductController::class)
+//     ->names([
+//         'index' => 'admin.products.index',
+//         'store' => 'admin.products.store',
+//         'show' => 'admin.products.show',
+//         'update' => 'admin.products.update',
+//         'destroy' => 'admin.products.destroy',
+//         'create' => 'admin.products.create',
+//         'edit' => 'admin.products.edit'
+//     ]);
