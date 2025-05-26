@@ -46,7 +46,7 @@
             @foreach ($product->images as $image)
                 <div class="col-md-3 mb-3 image-item" data-image-id="{{ $image->id }}">
                     <div class="card">
-                        <div class="card-header p-1 bg-light d-flex justify-content-between align-items-center">
+                        <div class="card-header2 p-1 bg-light d-flex justify-content-between align-items-center">
                             <span class="drag-handle"><i class="fas fa-grip-lines"></i></span>
                             <button type="button" class="btn btn-sm btn-danger delete-image"><i
                                     class="fas fa-times"></i></button>
@@ -139,7 +139,7 @@
                         const imageItemHtml = `
                         <div class="col-md-3 mb-3 image-item new-image" data-file-index="${index}">
                             <div class="card">
-                                <div class="card-header p-1 bg-light d-flex justify-content-between align-items-center">
+                                <div class="card-header2 p-1 bg-light d-flex justify-content-between align-items-center">
                                     <span class="drag-handle"><i class="fas fa-grip-lines"></i></span>
                                     <button type="button" class="btn btn-sm btn-danger delete-new-image"><i class="fas fa-times"></i></button>
                                 </div>
