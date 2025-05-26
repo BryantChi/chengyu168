@@ -52,7 +52,7 @@
                                 </li>
                             @endforeach
 
-                            @if (count($product_types ?? []) == 0)
+                            @if (Request::is('products-details-mock'))
                                 <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">全戶暖水系列</a></li>
                                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);">花灑龍頭</a></li>
                                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);">前置淨水系列</a></li>

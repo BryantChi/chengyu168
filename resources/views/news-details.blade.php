@@ -40,7 +40,7 @@
                             {!! $newsInfo->content ?? '' !!}
                         @endif
 
-                        @if ($newsInfo->content ?? null == null)
+                        @if (Request::is('news-details-mock'))
                             <p class="text-51 font-weight-normal">
                                 感謝您的支持，H&H 週年慶大放送！即日起，凡購買 指定款馬桶，即可享有 免費基本安裝<br>
                                 服務，讓您輕鬆升級舒適衛浴空間！<br><br>

@@ -50,7 +50,7 @@
                                     </a>
                                 </li>
                             @endforeach
-                            @if (count($categories ?? []) == 0)
+                            @if (Request::is('cases-details-mock'))
                                 <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">廚具規劃</a></li>
                                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);">衛浴設備</a></li>
                                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);">廁所修改</a></li>
@@ -66,7 +66,7 @@
                                 <h3 class="text-51 cases-title h4">{{ $case->title ?? '李府廚房設計規劃' }}</h3>
                                 <p class="text-028cd3 font-weight-light mb-0" style="font-size: 13px;">
                                     {{ \Carbon\Carbon::parse($case->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
-                                    {{ '觀看人數: 123' }}
+                                    {{ '觀看人數: ' . $case->views ?? '' }}
                                 </p>
                             </div>
                         </div>
@@ -74,10 +74,10 @@
                         <div class="col-12 mb-4">
                             <div class="cases-content text-e9 font-weight-light" data-aos="fade-up" data-aos-delay="200">
                                 @if ($case->content ?? null != null)
-                                    {!! $cases->content ?? '' !!}
+                                    {!! $case->content ?? '' !!}
                                 @endif
 
-                                @if ($case->content ?? null == null)
+                                @if (Request::is('cases-details-mock'))
                                     <p class="text-51 font-weight-normal">
                                         承鈺住宅設備有限公司深耕住宅設備規劃與安裝，憑藉專業設計與精湛施工，成功完成多項住宅與商業空間的廚
                                         房改造工程。<br>
