@@ -74,24 +74,27 @@
                                         </div>
 
                                     @endforeach
-                                    {{-- <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic2s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic3s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic4s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic5s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg')}}" class="img-fluid w-100" />
-                                    </div> --}}
+                                    @if (Request::is('products-details-mock'))
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic2s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic3s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic4s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic5s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+
+                                    @endif
 
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -104,24 +107,27 @@
                                             <img src="{{ asset('uploads/' . $image->image_path) }}" class="img-fluid w-100" />
                                         </div>
                                     @endforeach
-                                    {{-- <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic2s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic3s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic4s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic5s.jpg')}}" class="img-fluid w-100" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg')}}" class="img-fluid w-100" />
-                                    </div> --}}
+                                    @if (Request::is('products-details-mock'))
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic1.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic2s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic3s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic4s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic5s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('assets/images/03/pro_inside_pic6s.jpg') }}" class="img-fluid w-100" />
+                                        </div>
+
+                                    @endif
 
                                 </div>
                             </div>
@@ -145,14 +151,16 @@
                             <div class="products-detail-intro text-51 font-weight-light">
                                 {!! $product->details ?? '' !!}
 
-                                {{-- <p class="text-51 font-weight-light">
-                                    ■ 優雅霧黑塗層|耐刮耐污，不易留下指紋，持久如新<br>
-                                    ■ 一體成型設計|流線造型，搭配高腳設計，適用多種臉盆<br>
-                                    ■ 順滑單槍控溫|輕鬆調整水溫與水量，使用更便利<br>
-                                    ■ 高品質材質| 抗腐蝕、防鏽處理，確保長久耐用<br>
-                                    ■ 柔和出水設計｜減少水花飛濺，節水更環保<br><br>
-                                    更多詳細內容，歡迎您來電洽詢0934-325138/ 03-8580391
-                                </p> --}}
+                                @if (Request::is('products-details-mock'))
+                                    <p class="text-51 font-weight-light">
+                                        ■ 優雅霧黑塗層|耐刮耐污，不易留下指紋，持久如新<br>
+                                        ■ 一體成型設計|流線造型，搭配高腳設計，適用多種臉盆<br>
+                                        ■ 順滑單槍控溫|輕鬆調整水溫與水量，使用更便利<br>
+                                        ■ 高品質材質| 抗腐蝕、防鏽處理，確保長久耐用<br>
+                                        ■ 柔和出水設計｜減少水花飛濺，節水更環保<br><br>
+                                        更多詳細內容，歡迎您來電洽詢0934-325138/ 03-8580391
+                                    </p>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -25,6 +25,9 @@ class CooperateController extends Controller
 
         $input = $request->all();
 
+        // array to string conversion
+        $input['cooperate'] = implode(',', $input['cooperate'] ?? []);
+
         // 儲存需求表單資料
         // 這裡可以使用模型來儲存資料到資料庫
         $requirement = Cooperate::create($input);
