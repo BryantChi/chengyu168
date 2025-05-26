@@ -170,7 +170,7 @@
                                 {{-- 送出表單 --}}
                                 {{-- 清除重填 ＆ 確認送出 --}}
                                 <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center">
-                                    <button type="reset" class="btn btn-secondary font-weight-normal mr-lg-2 mb-lg-0 mb-3">清除重填</button>
+                                    <button type="reset" class="btn btn-secondary font-weight-normal mr-lg-2 mb-lg-0 mb-3 btn-reset">清除重填</button>
                                     <button type="submit" class="btn btn-028cd3 text-white font-weight-normal">確認送出</button>
                                 </div>
                             </div>
@@ -183,3 +183,15 @@
         </div>
     </div>
 @endsection
+
+@push('page_scripts')
+    <script>
+        $(function() {
+
+            // 重置按鈕事件
+            $('.btn-reset').on('click', function() {
+                $('#cooperate-form')[0].reset();
+            });
+        });
+    </script>
+@endpush
