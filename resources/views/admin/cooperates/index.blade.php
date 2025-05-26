@@ -5,14 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>產品資訊</h1>
+                    <h1>合作夥伴</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('admin.productTypes.create') }}">
-                        <i class="fas fa-plus"></i>
-                        新增
-                    </a>
+                    {{-- <a class="btn btn-primary float-right"
+                       href="{{ route('admin.cooperates.create') }}">
+                        Add New
+                    </a> --}}
                 </div>
             </div>
         </div>
@@ -25,7 +24,7 @@
         <div class="clearfix"></div>
 
         <div class="card">
-            @include('admin.product_types.table')
+            @include('admin.cooperates.table')
         </div>
     </div>
 

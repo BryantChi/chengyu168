@@ -3,10 +3,10 @@
         <table class="table" id="products-table">
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Intro</th>
-                <th>Details</th>
-                <th colspan="3">Action</th>
+                <th>標題</th>
+                <th>簡介</th>
+                <th>圖片</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -14,7 +14,14 @@
                 <tr>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->intro }}</td>
-                    <td>{!! $product->details !!}</td>
+                    <td>
+                        @php
+                            $imagePath = \App\Models\Admin\ProductImage::where('product_id', $product->id)->first();
+                        @endphp
+                        @if($imagePath)
+                            <img src="{{ asset('uploads/' . $imagePath->image_path) }}" alt="Product Image" style="width: 100px; height: auto;">
+                        @endif
+                    </td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['admin.products.destroy', $product->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

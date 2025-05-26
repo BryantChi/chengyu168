@@ -3,8 +3,8 @@
         <table class="table" id="product-types-table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th colspan="3">Action</th>
+                <th>名稱</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -14,15 +14,15 @@
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['admin.productTypes.destroy', $productType->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('admin.productTypes.show', [$productType->id]) }}"
-                               class='btn btn-default btn-xs'>
+                            {{-- <a href="{{ route('admin.productTypes.show', [$productType->id]) }}"
+                               class='btn btn-default btn-sm'>
                                 <i class="far fa-eye"></i>
-                            </a>
+                            </a> --}}
                             <a href="{{ route('admin.productTypes.edit', [$productType->id]) }}"
-                               class='btn btn-default btn-xs'>
+                               class='btn btn-default btn-sm'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-sm', 'onclick' => "return check(this);"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>

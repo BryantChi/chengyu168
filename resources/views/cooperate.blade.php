@@ -33,10 +33,29 @@
                     </picture>
                 </div>
                 <div class="col-lg-6">
-                    <form action="" method="post">
+                     {{-- 成功提示訊息 --}}
+                    @if (session('success'))
+                        <div class="alert text-center my-3">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- 錯誤提示訊息 --}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger text-center my-3">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="{{ route('cooperate.store') }}" id="cooperate-form" method="post">
                         <div class="row mb-5 mt-3">
                             <div class="col-12">
                                 <p class="text-f74300 font-weight-light mb-0">(*為必填或必選欄位)</p>
+                                @csrf
+                                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                             </div>
                             <div class="col-12">
                                 <div class="form-group form-inline mb-2">

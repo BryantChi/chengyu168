@@ -36,16 +36,16 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('admin.productTypes.index') }}" class="nav-link {{ Request::is('admin/productTypes*') ? 'active' : '' }}">
-        <span class="mr-2 brand-image"><i class="fas fa-folder-open"></i></span>
-        <p>產品分類</p>
+    <a href="{{ route('admin.products.index') }}" class="nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
+        <span class="mr-2 brand-image"><i class="fas fa-box"></i></span>
+        <p>產品資訊</p>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('admin.products.index') }}" class="nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
-        <span class="mr-2 brand-image"><i class="fas fa-box"></i></span>
-        <p>產品</p>
+    <a href="{{ route('admin.productTypes.index') }}" class="nav-link {{ Request::is('admin/productTypes*') ? 'active' : '' }}">
+        <span class="mr-2 brand-image"><i class="fas fa-folder-open"></i></span>
+        <p>產品分類</p>
     </a>
 </li>
 
@@ -55,6 +55,14 @@
         <p>產品型錄</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('admin.cooperates.index') }}" class="nav-link {{ Request::is('admin.cooperates*') ? 'active' : '' }}">
+        <span class="mr-2 brand-image"><i class="fas fa-handshake"></i></span>
+        <p>合作廠商</p>
+    </a>
+</li>
+
 
 {{-- <li class="nav-item">
     <a href="{{ route('admin.adminUsers.index') }}"

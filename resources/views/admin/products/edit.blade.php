@@ -6,7 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Edit Product
+                        產品資訊
+                        <small class="text-muted">編輯</small>
                     </h1>
                 </div>
             </div>

@@ -6,7 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Edit Product Type
+                        產品分類
+                        <small class="text-muted">新增</small>
                     </h1>
                 </div>
             </div>
@@ -28,8 +29,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('admin.productTypes.index') }}" class="btn btn-default"> Cancel </a>
+                {!! Form::submit('儲存', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('admin.productTypes.index') }}" class="btn btn-default"> 取消 </a>
             </div>
 
             {!! Form::close() !!}

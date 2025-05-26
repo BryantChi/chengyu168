@@ -6,8 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        產品資訊
-                        <small class="text-muted">新增</small>
+                        Edit Cooperate
                     </h1>
                 </div>
             </div>
@@ -20,19 +19,17 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'admin.products.store', 'files' => true]) !!}
+            {!! Form::model($cooperate, ['route' => ['admin.cooperates.update', $cooperate->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
-
                 <div class="row">
-                    @include('admin.products.fields')
+                    @include('admin.cooperates.fields')
                 </div>
-
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('儲存', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('admin.products.index') }}" class="btn btn-default"> 取消 </a>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('admin.cooperates.index') }}" class="btn btn-default"> Cancel </a>
             </div>
 
             {!! Form::close() !!}

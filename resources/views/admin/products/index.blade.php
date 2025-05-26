@@ -5,12 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Products</h1>
+                    <h1>產品資訊</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('admin.products.create') }}">
-                        Add New
+                        <i class="fas fa-plus"></i>
+                        新增
                     </a>
                 </div>
             </div>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CasesController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CooperateController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductsController;
@@ -56,13 +58,12 @@ Route::get('cases-details-mock', function (){
     return view('cases-details');
 })->name('cases-details-mock');
 
-Route::get('catalog', function (){
-    return view('catalog');
-})->name('catalog');
+Route::get('catalog', [CatalogController::class, 'index'])->name('catalog');
 
-Route::get('cooperate', function (){
-    return view('cooperate');
-})->name('cooperate');
+Route::get('cooperate', [CooperateController::class, 'index'])->name('cooperate');
+
+//需求表單頁面送出
+Route::post('/cooperate-form', [CooperateController::class, 'store'])->middleware('throttle:5,1')->name('cooperate.store');
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -142,3 +143,14 @@ Route::post('/catalogs/increment-views', 'App\Http\Controllers\CatalogController
 //         'create' => 'admin.products.create',
 //         'edit' => 'admin.products.edit'
 //     ]);
+
+Route::resource('admin/cooperates', App\Http\Controllers\Admin\CooperateController::class)
+    ->names([
+        'index' => 'admin.cooperates.index',
+        'store' => 'admin.cooperates.store',
+        'show' => 'admin.cooperates.show',
+        'update' => 'admin.cooperates.update',
+        'destroy' => 'admin.cooperates.destroy',
+        'create' => 'admin.cooperates.create',
+        'edit' => 'admin.cooperates.edit'
+    ]);
