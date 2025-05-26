@@ -34,7 +34,7 @@
                 <div class="row justify-content-center align-items-center py-2">
                     <div class="col-lg-auto mb-lg-0 mb-3">
                         <a href="{{ route('news-details', ['id' => $news->id]) }}">
-                            <img src="{{ asset($news->image ?? 'assets/images/02/news_pic.jpg') }}"
+                            <img src="{{ asset('uploads/' . $news->image) }}"
                                 class="img-fluid hp-news-pic" alt="">
                         </a>
                     </div>

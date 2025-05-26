@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <div class="row justify-content-center sc-case-list">
+                    <div class="row justify-content-start sc-case-list">
 
                         @foreach ($cases ?? [] as $key => $case)
                             <div class="col-lg-4 mb-4">

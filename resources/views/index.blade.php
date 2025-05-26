@@ -110,149 +110,194 @@
             </div>
 
             <div class="row justify-content-center align-items-center">
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic1.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">星動浴櫃</h5>
+                @foreach ($products ?? [] as $product)
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <a
+                                    href="{{ route('products-details', ['id' => $product->id, 'product_type_id' => request('product_type_id')]) }}">
+                                    @php
+                                        $product_img = \App\Models\Admin\ProductImage::where('product_id', $product->id)
+                                            ->orderBy('sort_order', 'asc')
+                                            ->first();
+                                    @endphp
+                                    <img src="{{ asset('uploads/' . $product_img->image_path) }}" class="img-fluid"
+                                        alt="{{ $product->title }}">
+                                </a>
+                            </div>
+                            <div class="product-item-content">
+                                <a
+                                    href="{{ route('products-details', ['id' => $product->id, 'product_type_id' => request('product_type_id')]) }}">
+                                    <h5 class="text-51 product-item-title my-3">{{ $product->title }}</h5>
+                                </a>
 
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
+                                <a href="{{ route('products-details', ['id' => $product->id, 'product_type_id' => request('product_type_id')]) }}"
+                                    class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic2.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">臉盆龍頭</h5>
+                <!-- Mockup products for testing -->
+                @if ($products->count() == 0)
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic1.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">星動浴櫃</h5>
 
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic3.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">廚房水槽</h5>
-
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic4.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">星動陶瓷馬桶</h5>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic2.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">臉盆龍頭</h5>
 
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic5.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">浴室龍頭</h5>
-
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic6.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">浴室面盆</h5>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic3.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">廚房水槽</h5>
 
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic7.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">魔方置物架</h5>
-
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="product-item-box">
-                        <div class="product-item-img">
-                            <img src="{{ asset('assets/images/00-hp/pro_pic8.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="product-item-content">
-                            <h5 class="text-51 product-item-title my-3">SYR全棟軟水系統</h5>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic4.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">星動陶瓷馬桶</h5>
 
-                            <a href="javascript:void(0);" class="product-item-more item-more-btn">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
-                                    <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
-                                </div>
-                            </a>
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic5.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">浴室龍頭</h5>
+
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic6.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">浴室面盆</h5>
+
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic7.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">魔方置物架</h5>
+
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="product-item-box">
+                            <div class="product-item-img">
+                                <img src="{{ asset('assets/images/00-hp/pro_pic8.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="product-item-content">
+                                <h5 class="text-51 product-item-title my-3">SYR全棟軟水系統</h5>
+
+                                <a href="javascript:void(0);" class="product-item-more item-more-btn">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-028cd3 font-weight-normal mb-0">MORE</p>
+                                        <p class="text-028cd3 font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
 
             </div>
 
@@ -287,29 +332,62 @@
                     </p>
                     <a href="{{ route('news') }}">
                         <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit px-0 mx-0">
-                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
+                                alt="">
                             <p class="mb-0 text-028cd3">更多消息</p>
                         </div>
                     </a>
 
                 </div>
 
-                <div class="col-lg-auto mb-lg-0 mb-3 ml-lg-5">
-                    <img src="{{ asset('assets/images/00-hp/news_pic.jpg') }}" class="img-fluid hp-news-pic"
-                        alt="">
-                </div>
-
-                <div class="col-lg">
-                    <div class="news-views text-028cd3 font-weight-light">觀看人次: 123</div>
-                    <h3 class="text-26 h4">H&H 週年慶 | 馬桶免費基本安裝活動 開跑！</h3>
-                    <p class="text-51 font-weight-normal">
-                        感謝您的支持，H&H 週年慶大放送！即日起，凡購買 指定款馬桶，即可享有 免費基本安裝服...more
-                    </p>
-                    <div class="d-flex flex-row justify-content-end align-items-center mt-3">
-                        <a href="javascript:void(0);" class="news-more text-028cd3 font-weight-normal">了解更多 MORE ⟩</a>
+                @if (!isset($news))
+                    <div class="col-lg-auto mb-lg-0 mb-3 ml-lg-5">
+                        <img src="{{ asset('assets/images/00-hp/news_pic.jpg') }}" class="img-fluid hp-news-pic"
+                            alt="">
                     </div>
 
-                </div>
+                    <div class="col-lg">
+                        <div class="news-views text-028cd3 font-weight-light">觀看人次: 123</div>
+                        <h3 class="text-26 h4">H&H 週年慶 | 馬桶免費基本安裝活動 開跑！</h3>
+                        <p class="text-51 font-weight-normal">
+                            感謝您的支持，H&H 週年慶大放送！即日起，凡購買 指定款馬桶，即可享有 免費基本安裝服...more
+                        </p>
+                        <div class="d-flex flex-row justify-content-end align-items-center mt-3">
+                            <a href="javascript:void(0);" class="news-more text-028cd3 font-weight-normal">了解更多 MORE ⟩</a>
+                        </div>
+
+                    </div>
+                @else
+                    <div class="col-lg-auto mb-lg-0 mb-3">
+                        <a href="{{ route('news-details', ['id' => $news->id]) }}">
+                            <img src="{{ asset('uploads/' . $news->image) }}" class="img-fluid hp-news-pic"
+                                alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-lg">
+                        <div class="news-views text-028cd3 font-weight-light">觀看人次: {{ $news->views ?? 0 }}</div>
+                        <a href="{{ route('news-details', ['id' => $news->id]) }}">
+                            <h3 class="text-26 h4">{{ $news->title ?? 'H&H 週年慶 | 馬桶免費基本安裝活動 開跑！' }}</h3>
+                        </a>
+
+                        @php
+                            $content = preg_replace('/<img[^>]*>/i', '', $news->content);
+                            // 移除其他 HTML 標籤
+                            $cleanText = strip_tags($content);
+                            // // 截取前100字（處理UTF-8中文）
+                            // $preview = mb_substr($cleanText, 0, 100);
+                        @endphp
+                        <p class="text-51 font-weight-normal multiline-ellipsis-2">
+                            {!! $cleanText ?? '' !!}
+                        </p>
+                        <div class="d-flex flex-row justify-content-end align-items-center mt-3">
+                            <a href="{{ route('news-details', ['id' => $news->id]) }}"
+                                class="news-more text-028cd3 font-weight-normal">了解更多
+                                MORE ⟩</a>
+                        </div>
+                    </div>
+                @endif
 
 
             </div>
@@ -330,149 +408,187 @@
             </div>
 
             <div class="row justify-content-center sc-case-list">
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 衛浴空間</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
+                @foreach ($cases ?? [] as $key => $case)
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <a
+                                    href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}">
+                                    <img src="{{ asset('uploads/' . $case->image) }}" class="img-fluid" alt="">
+                                </a>
                             </div>
-                            <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <a href="{{ route('cases', ['category_id' => $case->category_id]) }}">
+                                        <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                                class="icon-square text-028cd3"></span>
+                                            {{ \App\Models\Admin\Category::find($case->category_id)->name }}</p>
+                                    </a>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次:
+                                        {{ $case->views }}</p>
                                 </div>
-                            </a>
+                                <a
+                                    href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}">
+                                    <h5 class="text-51 case-item-title my-3">{{ $case->title }}</h5>
+                                </a>
+                                <a href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}"
+                                    class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 廚具規劃</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
+                <!-- Mockup cases for testing -->
+                @if ($cases->count() == 0)
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
+                                    alt="">
                             </div>
-                            <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 衛浴空間</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
                                 </div>
-                            </a>
+                                <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 衛浴設備</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
+                                    alt="">
                             </div>
-                            <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 廚具規劃</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
                                 </div>
-                            </a>
+                                <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 衛浴空間</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
+                                    alt="">
                             </div>
-                            <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 衛浴設備</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
                                 </div>
-                            </a>
+                                <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 廚具規劃</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic1.jpg') }}" class="img-fluid"
+                                    alt="">
                             </div>
-                            <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 衛浴空間</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 356</p>
                                 </div>
-                            </a>
+                                <h5 class="text-51 case-item-title my-3">淋浴拉門</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="case-item-box bg-f4">
-                        <div class="case-item-img mb-1">
-                            <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="case-item-content px-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="text-26 font-weight-light mb-0 case-item-tag"><span
-                                        class="icon-square text-028cd3"></span> 衛浴設備</p>
-                                <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic2.jpg') }}" class="img-fluid"
+                                    alt="">
                             </div>
-                            <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
-
-                            <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
-                                    <p class="text-white font-weight-normal mb-0">⟩</p>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 廚具規劃</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 251</p>
                                 </div>
-                            </a>
+                                <h5 class="text-51 case-item-title my-3">李府廚房設計規劃</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="case-item-box bg-f4">
+                            <div class="case-item-img mb-1">
+                                <img src="{{ asset('assets/images/00-hp/cases_pic3.jpg') }}" class="img-fluid"
+                                    alt="">
+                            </div>
+                            <div class="case-item-content px-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="text-26 font-weight-light mb-0 case-item-tag"><span
+                                            class="icon-square text-028cd3"></span> 衛浴設備</p>
+                                    <p class="text-028cd3 font-weight-light mb-0 case-item-views">觀看人次: 103</p>
+                                </div>
+                                <h5 class="text-51 case-item-title my-3">馬桶安裝</h5>
+
+                                <a href="javascript:void(0);" class="case-item-more item-more-btn2 my-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <p class="text-white font-weight-normal mb-0">了解更多MORE</p>
+                                        <p class="text-white font-weight-normal mb-0">⟩</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
 
             </div>
@@ -481,7 +597,8 @@
                 <div class="col-auto mt-4">
                     <a href="{{ route('cases') }}">
                         <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
-                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
+                                alt="">
                             <p class="mb-0 text-028cd3 font-weight-normal">更多工程實績</p>
                         </div>
                     </a>
