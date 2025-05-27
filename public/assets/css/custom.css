@@ -5,7 +5,7 @@
     --banner-ratio-1024: calc(100vw * (624 / 1024));
     --banner-ratio-1440: calc(100vw * (624 / 1440));
     --banner-ratio-1280: calc(100vw * (720 / 1280));
-    --banner-ratio-1920: calc(100vw * (904 / 1920));
+    --banner-ratio-1920: calc(100vw * (624 / 1920));
 
     --ab-bg-1024: calc(100vw * (512 / 1024));
     --ab-bg-1440: calc(100vw * (1080 / 1440));

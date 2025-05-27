@@ -29,7 +29,7 @@
                         <li class="{{ Request::is('/catalog') ? 'active' : '' }}"><a href="{{ route('catalog') }}">產品型錄</a></li>
                         <li class="{{ Request::is('/cooperate') ? 'active' : '' }}"><a href="{{ route('cooperate') }}">廠商合作</a></li>
                         <li>
-                            <a href="#" class="text-028cd3" target="_blank"
+                            <a href="https://www.facebook.com/profile.php?id=100088386932508" class="text-028cd3" target="_blank"
                                 style="color: #028cd3 !important;"><span class="icon-facebook"></span></a>
                         </li>
 

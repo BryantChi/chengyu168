@@ -79,10 +79,10 @@
     </a>
 
     <div class="d-none d-md-block social-links-btn wow slideInLeft" data-wow-delay="0.6s">
-        <a href="" target="_blank" class="d-none d-md-block"><img
+        <a href="https://line.me/R/ti/p/@myere666" target="_blank" class="d-none d-md-block"><img
                 src="{{asset('assets/images/00-hp/left_line.png')}}" class="img-fluid left-line-img"
                 alt=""></a>
-        <a href="" class="d-none d-md-block"><img
+        <a href="https://www.facebook.com/profile.php?id=100088386932508" class="d-none d-md-block"><img
                 src="{{ asset('assets/images/00-hp/left_mes.png') }}" class="img-fluid left-msg-img"
                 alt=""></a>
     </div>
@@ -91,17 +91,17 @@
     <div class="d-flex d-md-none w-100 position-fixed bottom-0 left-0 social-links-btn-mobile">
         <div class="row justify-content-center align-content-center text-center p-0 m-0 w-100">
             <div class="col-4 s-line-btn align-self-center">
-                <a href="" target="_blank">
+                <a href="https://line.me/R/ti/p/@myere666" target="_blank">
                     <span><i class="bi bi-line"></i></span> 免費諮詢
                 </a>
             </div>
             <div class="col-4 s-phone-btn align-self-center">
-                <a href="" target="_blank">
+                <a href="tel:03-8580391" target="_blank">
                     <span><i class="bi bi-telephone-fill"></i></span> 聯絡專人
                 </a>
             </div>
             <div class="col-4 s-location-btn align-self-center">
-                <a href="" target="_blank">
+                <a href="https://maps.app.goo.gl/HVwY9ffwKikm85pw6" target="_blank">
                     <span><i class="bi bi-map-fill"></i></span> 地址導航
                 </a>
             </div>
