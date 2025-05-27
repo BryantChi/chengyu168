@@ -16,6 +16,9 @@
         $('#hero').css({
             marginTop: $(".site-navbar").height(),
         });
+        $('.site-mobile-menu').css({
+            top: $(".site-navbar").height() + 5,
+        })
         setTimeout(function () {
             var siteNavbar = $(".site-navbar");
             var siteNavbarHeight = siteNavbar.height() || 73.5; // 提供預設值

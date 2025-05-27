@@ -66,7 +66,7 @@
                                 <h3 class="text-51 cases-title h4">{{ $case->title ?? '李府廚房設計規劃' }}</h3>
                                 <p class="text-028cd3 font-weight-light mb-0" style="font-size: 13px;">
                                     {{ \Carbon\Carbon::parse($case->created_at ?? '')->format('Y.m.d') ?? '2024.12.15' }} ・
-                                    {{ '觀看人數: ' . $case->views ?? '' }}
+                                    {{ '觀看人數: ' . ($case->views ?? '0') }}
                                 </p>
                             </div>
                         </div>

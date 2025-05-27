@@ -629,7 +629,7 @@ p {
 @media (max-width: 768px) {
     .hp-about-bg {
         background-color: #f3f9ff;
-        background-image: url(../images/00-hp/ab_bg640.jpg);
+        background-image: url(../images/00-hp/ab_bg750.jpg);
         background-position: center top;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -1284,4 +1284,20 @@ p {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
     overflow: hidden;
+}
+
+.line-height-normal {
+    line-height: 2rem ;
+}
+
+.ab-pic {
+
+}
+
+.site-mobile-menu {
+    width: 200px !important;
+}
+
+.site-wrap:before {
+    background: transparent !important;
 }
