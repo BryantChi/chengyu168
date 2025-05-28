@@ -1,7 +1,7 @@
 <div class="container-xxl">
     <div class="container-fluid p-0">
         <div class="row justify-content-center align-items-center no-gutters" id="sc-contact">
-            <div class="col-lg-6 px-0 mx-0">
+            <div class="col-lg-6 px-0 mx-0" data-aos="fade-up" data-aos-delay="200">
 
                 <a href="{{ route('catalog')}}">
                     <div class="position-relative">
@@ -23,7 +23,7 @@
                 </a>
 
             </div>
-            <div class="col-lg-6 px-0 mx-0">
+            <div class="col-lg-6 px-0 mx-0" data-aos="fade-up" data-aos-delay="200">
 
                 <a href="{{ route('cooperate') }}">
                     <div class="position-relative">

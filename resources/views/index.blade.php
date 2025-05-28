@@ -8,19 +8,19 @@
                 <div class="col-lg-7 px-0">
                     <div class="row justify-content-end px-0 mx-0">
                         <div class="col-lg-8">
-                            <h4 class="mb-4 sc-intro-title text-028cd3">花蓮/台東衛浴用品 • 住宅設備，長期合作供應商</h4>
-                            <p class="sc-intro-content text-51 font-weight-normal">
+                            <h4 class="mb-4 sc-intro-title text-028cd3" data-aos="fade-up">花蓮/台東衛浴用品 • 住宅設備，長期合作供應商</h4>
+                            <p class="sc-intro-content text-51 font-weight-normal" data-aos="fade-up">
                                 嚴選國內外優質品牌，提供衛浴、廚具設備、軟淨水系統、節能熱水器、浴室暖風乾燥機等高品質住宅設備，讓建案更具競爭力，提升住戶滿意度與市場價值。
                             </p>
                             <div class="d-flex flex-column2 flex-row justify-content-start align-item-center">
                                 <div class="d-flex flex-row align-item-center">
-                                    <div class="text-center mb-3 mb-lg-0">
+                                    <div class="text-center mb-3 mb-lg-0" data-aos="fade-up">
                                         <img src="{{ asset('assets/images/00-hp/intro_icon01.png') }}"
                                             class="img-fluid w-75 mb-2" alt="">
                                         <h6 class="text-028cd3">在地專業</h6>
                                     </div>
                                     <div class="intro-line mx-2 py-2"></div>
-                                    <div class="text-center mb-3 mb-lg-0">
+                                    <div class="text-center mb-3 mb-lg-0" data-aos="fade-up">
                                         <img src="{{ asset('assets/images/00-hp/intro_icon02.png') }}"
                                             class="img-fluid w-75 mb-2" alt="">
                                         <h6 class="text-028cd3">品質保證</h6>
@@ -30,13 +30,13 @@
                                 <div class="intro-line mx-2 py-2"></div>
 
                                 <div class="d-flex flex-row align-item-center">
-                                    <div class="text-center mb-3 mb-lg-0">
+                                    <div class="text-center mb-3 mb-lg-0" data-aos="fade-up">
                                         <img src="{{ asset('assets/images/00-hp/intro_icon03.png') }}"
                                             class="img-fluid w-75 mb-2" alt="">
                                         <h6 class="text-028cd3">專業安裝</h6>
                                     </div>
                                     <div class="intro-line mx-2 py-2"></div>
-                                    <div class="text-center mb-3 mb-lg-0">
+                                    <div class="text-center mb-3 mb-lg-0" data-aos="fade-up">
                                         <img src="{{ asset('assets/images/00-hp/intro_icon04.png') }}"
                                             class="img-fluid w-75 mb-2" alt="">
                                         <h6 class="text-028cd3">建案夥伴</h6>
@@ -50,7 +50,7 @@
 
                 </div>
 
-                <div class="col-lg-5 px-0 h-100">
+                <div class="col-lg-5 px-0 h-100" data-aos="slide-left" data-aos-delay="200">
                     <img src="{{ asset('assets/images/00-hp/intro_pic.jpg') }}" class="img-fluid intro-pic" alt="">
                 </div>
             </div>
@@ -60,7 +60,7 @@
 
 
     <!-- m_ban -->
-    <div class="container-xxl bg-m-ban">
+    <div class="container-xxl bg-m-ban" data-aos="zoom-in" data-aos-delay="200">
         <div class="container py-5 my-lg-5">
             <div class="row justify-content-center py-5" id="sc-m-ban">
                 <div class="col-lg text-center py-3">
@@ -80,7 +80,7 @@
                 <!-- product header -->
                 <div class="col-12 d-flex justify-content-between align-items-center">
 
-                    <div class="d-flex flex-lg-row flex-column align-items-lg-center w-fit h-fit">
+                    <div class="d-flex flex-lg-row flex-column align-items-lg-center w-fit h-fit" data-aos="fade-up" data-aos-delay="200">
                         <div class="d-flex flex-row justify-content-between align-item-center">
                             <div class="hp-sc-title">
                                 <h4 class="text-028cd3 mb-1">產品介紹</h4>
@@ -98,7 +98,7 @@
                         <p class="text-51 font-weight-normal mb-0">承鈺住宅設備為您打造智慧、健康、便利的理想家居！</p>
                     </div>
 
-                    <a href="{{ route('products') }}">
+                    <a href="{{ route('products') }}"  data-aos="fade-up" data-aos-delay="200">
                         <div class="sc-more-content d-lg-flex d-none flex-row align-items-center w-fit">
                             <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid" alt="">
                             <p class="mb-0 text-028cd3">更多產品介紹</p>
@@ -109,7 +109,7 @@
                 <!-- product header end -->
             </div>
 
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($products ?? [] as $product)
                     <div class="col-lg-3 col-md-6 mb-3">
                         <div class="product-item-box">
@@ -314,7 +314,7 @@
     <div class="container-xxl sc-news py-5 hp-news-bg">
         <div class="container">
             <div class="row justify-content-center align-items-center" id="sc-news">
-                <div class="col-lg-auto mb-lg-0 mb-3">
+                <div class="col-lg-auto mb-lg-0 mb-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="d-flex flex-row justify-content-between align-item-center mb-3">
                         <div class="hp-sc-title">
                             <h4 class="text-028cd3 mb-1">最新消息</h4>
@@ -345,14 +345,14 @@
                 </div>
 
                 @if (!isset($news))
-                    <div class="col-lg-auto mb-lg-0 mb-3 ml-lg-5">
+                    <div class="col-lg-auto mb-lg-0 mb-3 ml-lg-5" data-aos="zoom-in" data-aos-delay="200">
                         <a href="{{ route('news-details-mock') }}">
                             <img src="{{ asset('assets/images/00-hp/news_pic.jpg') }}" class="img-fluid hp-news-pic"
                                 alt="">
                         </a>
                     </div>
 
-                    <div class="col-lg">
+                    <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
                         <div class="news-views text-028cd3 font-weight-light">觀看人次: 123</div>
                         <a href="{{ route('news-details-mock') }}"><h3 class="text-26 h4">H&H 週年慶 | 馬桶免費基本安裝活動 開跑！</h3></a>
                         <p class="text-51 font-weight-normal">
@@ -364,14 +364,14 @@
 
                     </div>
                 @else
-                    <div class="col-lg-auto mb-lg-0 mb-3">
+                    <div class="col-lg-auto mb-lg-0 mb-3" data-aos="zoom-in" data-aos-delay="200">
                         <a href="{{ route('news-details', ['id' => $news->id]) }}">
                             <img src="{{ asset('uploads/' . $news->image) }}" class="img-fluid hp-news-pic"
                                 alt="">
                         </a>
                     </div>
 
-                    <div class="col-lg">
+                    <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
                         <div class="news-views text-028cd3 font-weight-light">觀看人次: {{ $news->views ?? 0 }}</div>
                         <a href="{{ route('news-details', ['id' => $news->id]) }}">
                             <h3 class="text-26 h4">{{ $news->title ?? 'H&H 週年慶 | 馬桶免費基本安裝活動 開跑！' }}</h3>
@@ -404,7 +404,7 @@
     <!-- sc cases -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row" id="sc-case">
+            <div class="row" id="sc-case" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-lg-12 mb-4 text-center">
                     <h4 class="text-c1e5f7 font-weight-normal letter-spacing-2">EXQUISITE RESIDENTIAL EQUIPMENT</h4>
                     <p class="text-51 font-weigtht-normal mb-0">
@@ -413,7 +413,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center sc-case-list">
+            <div class="row justify-content-center sc-case-list" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($cases ?? [] as $key => $case)
                     <div class="col-lg-4 mb-4">
                         <div class="case-item-box bg-f4">
@@ -604,7 +604,7 @@
             </div>
 
             <div class="row justify-content-center align-items-center">
-                <div class="col-auto mt-4">
+                <div class="col-auto mt-4" data-aos="fade-up" data-aos-delay="200">
                     <a href="{{ route('cases') }}">
                         <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
                             <img src="{{ asset('assets/images/00-hp/button_arrow.png') }}" class="img-fluid"
@@ -637,16 +637,16 @@
                     <div class="row justify-content-end align-items-center px-0 mx-0">
                         <div class="col-lg-8">
                             <div class="hp-about-content px-lg-5 px-2 mr-lg-4">
-                                <div class="text-028cd3 text-uppercase mb-2 d-md-flex align-items-end mb-4">
+                                <div class="text-028cd3 text-uppercase mb-2 d-md-flex align-items-end mb-4" data-aos="fade-up" data-aos-delay="200">
                                     <p class="mr-2 mb-0 h1 font-weight-normal" style="letter-spacing: 5px;">About</p>
                                     <h3 class="mb-1 h3 font-weight-normal" style="letter-spacing: 3px;">承鈺宅設備有限公司</h3>
                                 </div>
-                                <p class="text-51 font-weight-normal mb-0 text-justify line-height-normal">
+                                <p class="text-51 font-weight-normal mb-0 text-justify line-height-normal" data-aos="fade-up" data-aos-delay="200">
                                     承鈺住宅設備有限公司以多元的住宅設備為主要銷售產品，代理商品涵蓋國內外各大優良產品；提高專業服務，且證照相關積極考取，乙級室內裝修工程管理證照，乙級室內裝修設計證照、病態建築二級診斷士證照，和綠裝修認證考試等等。<br>
                                     在提供住宅設備服務外也同時提高服務專業，同時增加新科技的產品導入，讓您的住宅透過承鈺的服務變得更有愛更舒適。
 
                                 </p>
-                                <div class="col-auto mt-4 px-0 mx-0">
+                                <div class="col-auto mt-4 px-0 mx-0" data-aos="fade-up" data-aos-delay="200">
                                     <a href="{{ route('about') }}">
                                         <div class="sc-more-content d-flex flex-row align-items-center w-fit px-0 mx-0">
                                             <img src="{{ 'assets/images/00-hp/button_arrow.png' }}" class="img-fluid"
@@ -662,7 +662,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-5 px-0 h-100">
+                <div class="col-lg-5 px-0 h-100" data-aos="fade-up" data-aos-delay="200">
                     <img src="{{ asset('assets/images/00-hp/ab_pic.jpg') }}" class="img-fluid intro-pic ab-pic" alt="">
                 </div>
 

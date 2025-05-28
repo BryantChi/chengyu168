@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="container hero-bottom">
+    <div class="container hero-bottom" data-aos="fade-in">
         <div class="row text-lg-center mx-auto bg-028cd3 h-fit">
             <div
                 class="d-flex flex-lg-row flex-column justify-content-between align-items-lg-center hero-bottom-txt-inner">
