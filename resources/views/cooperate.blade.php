@@ -27,7 +27,7 @@
                 <div class="col-lg-3 mb-lg-0 mb-3 px-0 align-self-end">
                     <picture>
                         <source srcset="{{ asset('assets/images/06/06left_b720.jpg') }}" media="(min-width: 992px)">
-                        <source srcset="{{ asset('assets/images/06/06left_b624.jpg') }}" media="(max-width: 768px)">
+                        <source srcset="{{ asset('assets/images/06/06left_b624.jpg') }}" media="(min-width: 768px)">
                         <img src="{{ asset('assets/images/06/06left_b960.jpg') }}" class="img-fluid hp-cooperate-pic"
                             alt="">
                     </picture>
@@ -169,12 +169,14 @@
                             <div class="col-12 d-flex justify-content-lg-end mt-3">
                                 {{-- 送出表單 --}}
                                 {{-- 清除重填 ＆ 確認送出 --}}
-                                <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center">
-                                    <button type="reset" class="btn btn-secondary font-weight-normal mr-lg-2 mb-lg-0 mb-3 btn-reset">清除重填</button>
+                                <div class="d-flex flex-row flex-column2 justify-content-center align-items-center">
+                                    <button type="reset" class="btn btn-secondary font-weight-normal mr-2  btn-reset">清除重填</button>
                                     <button type="submit" class="btn btn-028cd3 text-white font-weight-normal">確認送出</button>
                                 </div>
                             </div>
 
+
+                            <div class="col-12 d-md-none my-5 py-5"></div>
                         </div>
                     </form>
                 </div>

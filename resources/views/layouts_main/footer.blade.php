@@ -51,6 +51,12 @@
                             <li><a href="{{ route('cooperate') }}">廠商合作</a></li>
                         </ul>
                     </div>
+                    <div class="col-12 mt-4">
+                        <ul class="list-unstyled pl-0">
+                            <li style="color: #92c8f9">本日人氣 : <span class="text-white ml-1">{{ $visitorCountToday }}</span></li>
+                            <li style="color: #92c8f9">累計人氣 : <span class="text-white ml-1">{{ $visitorCount + 14795 }}</span></li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>

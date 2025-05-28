@@ -11,17 +11,17 @@
 <header class="site-navbar bg-white py-1 fixed-top" role="banner">
 
     <div class="container">
-        <div class="row justify-content-lg-center align-items-center">
+        <div class="row justify-content-between align-items-center">
 
             <div class="col-8 col-xl-3" data-aos="fade-down">
                 <h1 class="mb-0"><a href="{{ route('index') }}" class="text-black h2 mb-0">
                         <img src="{{ asset('assets/images/00-hp/top_logo.svg') }}" alt="Logo" class="img-fluid">
                     </a></h1>
             </div>
-            <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
-                <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+            <div class="col-10 col-md-auto d-none d-xl-block" data-aos="fade-down">
+                <nav class="site-navigation position-relative text-right text-lg-center w-fit" role="navigation">
 
-                    <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block font-weight-normal">
+                    <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block font-weight-normal">
                         <li class="{{ Request::is('/about') ? 'active' : '' }}"><a href="{{ route('about') }}">公司簡介</a></li>
                         <li class="{{ Request::is('/news') ? 'active' : '' }}"><a href="{{ route('news') }}">最新消息</a></li>
                         <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{ route('products') }}">產品介紹</a></li>
