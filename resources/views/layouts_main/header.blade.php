@@ -19,7 +19,7 @@
                     </a></h1>
             </div>
             <div class="col-10 col-md-auto d-none d-xl-block" data-aos="fade-down">
-                <nav class="site-navigation position-relative text-right text-lg-center w-fit" role="navigation">
+                <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
                     <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block font-weight-normal">
                         <li class="{{ Request::is('/about') ? 'active' : '' }}"><a href="{{ route('about') }}">公司簡介</a></li>
@@ -43,8 +43,7 @@
                         href="#" class="site-menu-toggle js-menu-toggle text-black">
                         <img src="{{ asset('assets/images/fimgs/iconmenu.png') }}" class="img-fluid" width="30"
                             alt="">
-                    </a></div>
-
+                     </a></div>
             </div>
 
         </div>

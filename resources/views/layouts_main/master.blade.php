@@ -35,7 +35,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css"> --}}
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ time() }}">
 
@@ -59,7 +60,7 @@
 <body>
     {!! $seoInfo->ga_body ?? '' !!}
 
-    <div class="site-wrap">
+    <div class="site-wrap" style="overflow-x: hidden;">
 
         @include('layouts_main.header')
         @include('layouts_main.hero')
@@ -80,15 +81,14 @@
 
     <div class="d-none d-md-block social-links-btn wow slideInLeft" data-wow-delay="0.6s">
         <a href="https://lin.ee/Ljav4hb" target="_blank" class="d-none d-md-block"><img
-                src="{{asset('assets/images/00-hp/left_line.png')}}" class="img-fluid left-line-img"
+                src="{{ asset('assets/images/00-hp/left_line.png') }}" class="img-fluid left-line-img"
                 alt=""></a>
         <a href="https://www.facebook.com/profile.php?id=100088386932508" class="d-none d-md-block"><img
                 src="{{ asset('assets/images/00-hp/left_mes.png') }}" class="img-fluid left-msg-img"
                 alt=""></a>
     </div>
 
-
-    <div class="d-flex d-md-none w-100 position-fixed bottom-0 left-0 social-links-btn-mobile">
+    <div class="d-flex d-md-none position-fixed bottom-0 left-0 social-links-btn-mobile">
         <div class="row justify-content-center align-content-center text-center p-0 m-0 w-100">
             <div class="col-4 s-line-btn align-self-center">
                 <a href="https://lin.ee/Ljav4hb" target="_blank">
@@ -121,18 +121,13 @@
     {{-- <script src="{{ asset('assets/js/aos.js') }}"></script> --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     {{-- wow cdn --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="{{ asset('assets/js/main.js') }}?v={{ time() }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}?v={{ time() }}"></script>
 
 
-
-    <script>
-
-        $(document).ready(function() {});
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".heroSwiper", {
             spaceBetween: 30,

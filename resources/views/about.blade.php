@@ -1,7 +1,7 @@
 @extends('layouts_main.master')
 
 @section('content')
-    <div class="conatiner-xxl py-5 bg-sc-title">
+    <div class="py-5 bg-sc-title">
 
         <div class="container">
             <div class="row justify-content-center px-lg-1 px-3">
@@ -20,8 +20,8 @@
         </div>
     </div>
 
-    <div class="container-xxl py-3">
-        <div class="container-fluid px-0">
+    <div class="py-3">
+        <div class="container-fluid px-md-0">
             <div class="row">
 
                 <div class="col-lg-5">
@@ -56,68 +56,68 @@
 
             </div>
 
-            <div class="container-fluid py-3">
-                <div class="row mb-lg-3 mb-4">
-                    <div class="col-lg-7 align-self-center">
-                        <div class="row justify-content-end">
-                            <div class="col-lg-7">
-                                <h4 class="text-c1e5f7 font-weight-normal letter-spacing-2">PROFESSIONAL CERTIFICATION</h4>
 
-                                <h4 class="about-title text-028cd3 w-fit mb-3 mt-4">科技新應用 • 滿足需求</h4>
-                                <p class="text-51 font-weight-normal mb-0">
-                                    隨著科技進步，人民生活水準及健康意識漸漸提高，本公司也開始注意到不只是
-                                    要注意我們室內空氣的品質，早在20年前我們也注意到生活用水的重要性，因此
-                                    我們也積極導入全屋式軟淨水機等最新科技產品，特別為花蓮台東地區引進
-                                    ECOWATER美國及SYR德國的先進技術，有效保護用水的純淨與健康，延長設備
-                                    使用壽命，同時減少環境負擔，本公司提供更舒適專業的住宅設備也善盡社會責
-                                    任。
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="{{ asset('assets/images/01/pic02.jpg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-                <div class="row mb-lg-3 mb-4">
-                    <div class="col-lg-7">
-                        <div class="row justify-content-end">
-                            <div class="col-lg-7">
-                                <h4 class="about-title text-028cd3 w-fit mb-3 mt-4">承諾服務 • 創建美好居住</h4>
-                                <p class="text-51 font-weight-normal mb-0">
-                                    承鈺住宅設備有限公司不僅是您的商業夥伴，更是改善生活品質的共同伙伴。
-                                    我們秉持誠信、創新和社會責任感，致力於成為您首選的住宅設備合作夥伴。藉
-                                    由我們專業的服務和精湛的技術，共同打造一個健康舒適的家居環境。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid py-3 px-0">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <picture>
-                            <source srcset="{{ asset('assets/images/01/pic03_1440.jpg') }}" media="(max-width: 1440px)">
-                            <source srcset="{{ asset('assets/images/01/pic03_1280.jpg') }}" media="(max-width: 1280px)">
-                            <source srcset="{{ asset('assets/images/01/pic03_1024.jpg') }}" media="(max-width: 1024px)">
-                            <source srcset="{{ asset('assets/images/01/pic03_624.jpg') }}" media="(max-width: 768px)">
-                            <img src="{{ asset('assets/images/01/pic03_1560.jpg') }}" class="img-fluid" alt="">
-                        </picture>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
 
+        <div class="container-fluid py-3">
+            <div class="row mb-lg-3 mb-4">
+                <div class="col-lg-7 align-self-center">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-7">
+                            <h4 class="text-c1e5f7 font-weight-normal letter-spacing-2">PROFESSIONAL CERTIFICATION</h4>
 
+                            <h4 class="about-title text-028cd3 w-fit mb-3 mt-4">科技新應用 • 滿足需求</h4>
+                            <p class="text-51 font-weight-normal mb-0">
+                                隨著科技進步，人民生活水準及健康意識漸漸提高，本公司也開始注意到不只是
+                                要注意我們室內空氣的品質，早在20年前我們也注意到生活用水的重要性，因此
+                                我們也積極導入全屋式軟淨水機等最新科技產品，特別為花蓮台東地區引進
+                                ECOWATER美國及SYR德國的先進技術，有效保護用水的純淨與健康，延長設備
+                                使用壽命，同時減少環境負擔，本公司提供更舒適專業的住宅設備也善盡社會責
+                                任。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <img src="{{ asset('assets/images/01/pic02.jpg') }}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="row mb-lg-3 mb-4">
+                <div class="col-lg-7">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-7">
+                            <h4 class="about-title text-028cd3 w-fit mb-3 mt-4">承諾服務 • 創建美好居住</h4>
+                            <p class="text-51 font-weight-normal mb-0">
+                                承鈺住宅設備有限公司不僅是您的商業夥伴，更是改善生活品質的共同伙伴。
+                                我們秉持誠信、創新和社會責任感，致力於成為您首選的住宅設備合作夥伴。藉
+                                由我們專業的服務和精湛的技術，共同打造一個健康舒適的家居環境。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid py-3 px-0">
+            <div class="row">
+                <div class="col-lg-10">
+                    <picture>
+                        <source srcset="{{ asset('assets/images/01/pic03_1440.jpg') }}" media="(max-width: 1440px)">
+                        <source srcset="{{ asset('assets/images/01/pic03_1280.jpg') }}" media="(max-width: 1280px)">
+                        <source srcset="{{ asset('assets/images/01/pic03_1024.jpg') }}" media="(max-width: 1024px)">
+                        <source srcset="{{ asset('assets/images/01/pic03_624.jpg') }}" media="(max-width: 768px)">
+                        <img src="{{ asset('assets/images/01/pic03_1560.jpg') }}" class="img-fluid" alt="">
+                    </picture>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <div class="container-xxl bg-equipment pb-5">
+    <div class="bg-equipment pb-5">
         <div class="container">
             @include('components.equipment')
 

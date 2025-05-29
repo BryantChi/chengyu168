@@ -37,14 +37,14 @@
                     <div class="col-md-12">
                         <h3 class="footer-heading text-uppercase mb-4">Quick Links</h3>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4">
                         <ul class="text-white list-unstyled pl-0">
                             <li><a href="{{ route('about') }}">公司簡介</a></li>
                             <li><a href="{{ route('news') }}">最新消息</a></li>
                             <li><a href="{{ route('products') }}">產品介紹</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4">
                         <ul class="text-white list-unstyled pl-0">
                             <li><a href="{{ route('cases') }}">工程實績</a></li>
                             <li><a href="{{ route('catalog') }}">產品型錄</a></li>

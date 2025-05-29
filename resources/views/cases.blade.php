@@ -75,7 +75,7 @@
                                 <div class="case-item-box bg-f4">
                                     <div class="case-item-img mb-1">
                                         <a href="{{ route('cases-details', ['id' => $case->id, 'category_id' => request('category_id')]) }}">
-                                            <img src="{{ asset('uploads/'.$case->image) }}" class="img-fluid" alt="">
+                                            <img src="{{ asset('uploads/'.$case->image) }}" class="img-fluid w-100" alt="">
                                         </a>
                                     </div>
                                     <div class="case-item-content px-3">

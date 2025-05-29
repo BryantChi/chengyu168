@@ -450,7 +450,7 @@
                 @endforeach
 
                 <!-- Mockup cases for testing -->
-                @if ($cases->count() == 0)
+                @if (count($cases) == 0)
                     <div class="col-lg-4 mb-4">
                         <div class="case-item-box bg-f4">
                             <div class="case-item-img mb-1">

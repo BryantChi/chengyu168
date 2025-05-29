@@ -179,13 +179,78 @@
 @push('page_scripts')
     <script>
         $(document).ready(function() {
-            // 處理線上瀏覽按鈕點擊
-            $('.view-catalog-btn').on('click', function() {
-                const catalogId = $(this).data('id');
-                const fileUrl = $(this).data('file');
-                const viewCountElement = $(this).closest('.catalog-footer').find('p');
+            // 檢測是否為移動設備
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-                // AJAX請求增加瀏覽次數
+            // 觸控和點擊處理
+            $(document).on('click touchstart', '.view-catalog-btn', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const $this = $(this);
+                const catalogId = $this.data('id');
+                const fileUrl = $this.data('file');
+                const viewCountElement = $this.closest('.catalog-footer').find('p');
+
+                // 檢查是否為示例型錄
+                const isSample = catalogId && (catalogId.toString().includes('sample'));
+
+                // 視覺反饋
+                $this.css('opacity', '0.7').text('開啟中...');
+
+                // 移動設備特殊處理 - 直接在當前視窗打開PDF
+                if (isMobile) {
+                    // 示例型錄無需計數
+                    if (isSample) {
+                        window.location.href = fileUrl;
+                        return;
+                    }
+
+                    // 先增加計數，然後直接打開
+                    $.ajax({
+                        url: '{{ route('catalogs.incrementViews') }}',
+                        type: 'POST',
+                        data: {
+                            id: catalogId,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                // 更新計數但不等待用戶看到
+                                viewCountElement.text('瀏覽人次: ' + response.views);
+                            }
+                            // 在計數後立即開啟
+                            window.location.href = fileUrl;
+                        },
+                        error: function(error) {
+                            console.error('增加瀏覽次數失敗', error);
+                            // 即使計數失敗仍然開啟PDF
+                            window.location.href = fileUrl;
+                        }
+                    });
+                    return;
+                }
+
+                // 桌面設備處理 - 嘗試開啟新視窗
+                let newWindow = null;
+                try {
+                    newWindow = window.open('about:blank', '_blank');
+                } catch (e) {
+                    console.error('無法開啟新視窗:', e);
+                }
+
+                // 示例型錄
+                if (isSample) {
+                    if (newWindow) {
+                        newWindow.location.href = fileUrl;
+                    } else {
+                        window.location.href = fileUrl;
+                    }
+                    $this.css('opacity', '1').text('線上瀏覽');
+                    return;
+                }
+
+                // 對真實型錄執行AJAX請求
                 $.ajax({
                     url: '{{ route('catalogs.incrementViews') }}',
                     type: 'POST',
@@ -194,18 +259,28 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        // 更新頁面上的瀏覽次數
                         if (response.success) {
                             viewCountElement.text('瀏覽人次: ' + response.views);
                         }
 
-                        // 開啟PDF檔案
-                        window.open(fileUrl, '_blank');
+                        $this.css('opacity', '1').text('線上瀏覽');
+
+                        if (newWindow) {
+                            newWindow.location.href = fileUrl;
+                        } else {
+                            window.location.href = fileUrl;
+                        }
                     },
                     error: function(error) {
                         console.error('增加瀏覽次數失敗', error);
-                        // 即使失敗也開啟PDF
-                        window.open(fileUrl, '_blank');
+
+                        $this.css('opacity', '1').text('線上瀏覽');
+
+                        if (newWindow) {
+                            newWindow.location.href = fileUrl;
+                        } else {
+                            window.location.href = fileUrl;
+                        }
                     }
                 });
             });

@@ -10,14 +10,11 @@
 
     // });
 
-    new WOW().init();
-
+    // new WOW().init();
     $(function () {
-        $('#hero').css({
-            marginTop: $(".site-navbar").height(),
-        });
+
         $('.site-mobile-menu').css({
-            top: $(".site-navbar").height() + 5,
+            top: $(".site-navbar").height(),
         })
         setTimeout(function () {
             var siteNavbar = $(".site-navbar");
@@ -25,7 +22,7 @@
             console.log("Navbar height after delay:", siteNavbarHeight); // 除錯用
 
             // 確保 #main 元素存在
-            if ($("#main").length && siteNavbar.length) {
+            if ($("#main").length) {
                 $("html, body").animate(
                     {
                         scrollTop: $("#main").offset().top - siteNavbarHeight,
@@ -36,25 +33,46 @@
         }, 500); // 500毫秒延遲
 
         // Back to top button
-        $(window).scroll(function () {
+        $(window).on("scroll", function () {
             if ($(this).scrollTop() > 300) {
                 $(".back-to-top").fadeIn("slow");
                 // $('.site-navbar').addClass('site-navbar-scroll');
+
+                $('#hero').css({
+                    marginTop: $(".site-navbar").height(),
+                });
+                $('.site-navbar').css({
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000,
+                })
             } else {
                 $(".back-to-top").fadeOut("slow");
                 // $('.site-navbar').removeClass('site-navbar-scroll');
+                $('#hero').css({
+                    marginTop: 0,
+                });
+                $('.site-navbar').css({
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000,
+                })
             }
         });
-        $(".back-to-top").click(function () {
+        $(".back-to-top").on("click", function () {
             $("html, body").animate({ scrollTop: 0 }, 1500);
             return false;
         });
 
         // $(window).on("scroll", function () {
         //     if ($(window).scrollTop() > 300) {
-        //         $(".site-navbar").addClass("fixed-top");
+        //         $(".site-navbar2").addClass("fixed-top");
         //     } else {
-        //         $(".site-navbar").removeClass("fixed-top");
+        //         $(".site-navbar2").removeClass("fixed-top");
         //     }
         // });
 
@@ -70,12 +88,12 @@
         //     .trigger("resize");
     });
 
-    function pxToRem(pxValue) {
-        // Get the root element's font size (default is usually 16px)
-        var rootFontSize = parseFloat(
-            getComputedStyle(document.documentElement).fontSize
-        );
-        // Convert px to rem by dividing by root font size
-        return pxValue / rootFontSize;
-    }
+    // function pxToRem(pxValue) {
+    //     // Get the root element's font size (default is usually 16px)
+    //     var rootFontSize = parseFloat(
+    //         getComputedStyle(document.documentElement).fontSize
+    //     );
+    //     // Convert px to rem by dividing by root font size
+    //     return pxValue / rootFontSize;
+    // }
 })(jQuery);
