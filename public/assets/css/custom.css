@@ -1361,7 +1361,7 @@ p {
 
 .case-item-img img {
     width: 100%;
-    height: 100%;
+    height: 17.5rem;
     object-fit: cover;
     object-position: center center;
 }
@@ -1369,4 +1369,19 @@ p {
 .site-mobile-menu .site-nav-wrap a:hover,
 .site-mobile-menu .site-nav-wrap a:focus {
     color: #028cd3 !important;
+}
+
+.products-detail-intro p {
+    color: #515151 !important;
+    font-weight: 400 !important;
+}
+
+.news-content p {
+    color: #515151 !important;
+    font-weight: 400 !important;
+}
+
+.cases-content p {
+    color: #515151 !important;
+    font-weight: 400 !important;
 }

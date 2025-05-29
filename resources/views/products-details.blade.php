@@ -148,7 +148,7 @@
                             <h5 class="text-26 font-weight-bold products-detail-intro-title d-flex align-items-center">
                                 <img src="{{ asset('assets/images/03/03plus_inside.png') }}" class="img-fluid" alt=""> 詳細介紹
                             </h5>
-                            <div class="products-detail-intro text-51 font-weight-light">
+                            <div class="products-detail-intro text-e9 font-weight-light">
                                 {!! $product->details ?? '' !!}
 
                                 @if (Request::is('products-details-mock'))

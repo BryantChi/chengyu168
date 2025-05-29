@@ -7,7 +7,7 @@
             <div class="row justify-content-center px-lg-0 px-4" id="sc-intro">
                 <div class="col-lg-7 px-0">
                     <div class="row justify-content-end px-0 mx-0">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 px-lg-5 px-2 mr-lg-4">
                             <h4 class="mb-4 sc-intro-title text-028cd3" data-aos="fade-up">花蓮/台東衛浴用品 • 住宅設備，長期合作供應商</h4>
                             <p class="sc-intro-content text-51 font-weight-normal" data-aos="fade-up">
                                 嚴選國內外優質品牌，提供衛浴、廚具設備、軟淨水系統、節能熱水器、浴室暖風乾燥機等高品質住宅設備，讓建案更具競爭力，提升住戶滿意度與市場價值。

@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="col-12 mb-4">
-                    <div class="cases-content text-e9 font-weight-light" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-content text-51 font-weight-light" data-aos="fade-up" data-aos-delay="200">
                         @if ($newsInfo->content ?? null != null)
                             {!! $newsInfo->content ?? '' !!}
                         @endif
