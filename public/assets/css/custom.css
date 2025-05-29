@@ -44,6 +44,12 @@ p {
     letter-spacing: 1.5px;
 }
 
+@media (max-width: 768px) {
+    p {
+        font-size: 1.2rem
+    }
+}
+
 .bg-gray-20 {
     /* background-color: #ece9e2d7; */
     background-color: #f9f5f1;
@@ -925,9 +931,9 @@ p {
 
 @media (max-width: 768px) {
     .bg-equipment {
-        background-color: #f3f9ff;
+        background-color: #fff;
         background-image: url(../images/01/01item_bg750.jpg);
-        background-position: center top;
+        background-position: center bottom;
         background-repeat: no-repeat;
         background-size: 100%;
     }

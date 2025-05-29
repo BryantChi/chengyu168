@@ -24,7 +24,7 @@
         <div class="container-fluid px-md-0">
             <div class="row">
 
-                <div class="col-lg-5">
+                <div class="col-lg-5 mb-lg-0 mb-3">
                     <div class="about-img">
                         <img src="{{ asset('assets/images/01/pic01.jpg') }}" class="img-fluid" alt="">
                     </div>
@@ -63,7 +63,7 @@
 
         <div class="container-fluid py-3">
             <div class="row mb-lg-3 mb-4">
-                <div class="col-lg-7 align-self-center">
+                <div class="col-lg-7 align-self-center mb-lg-0 mb-3">
                     <div class="row justify-content-end">
                         <div class="col-lg-7">
                             <h4 class="text-c1e5f7 font-weight-normal letter-spacing-2">PROFESSIONAL CERTIFICATION</h4>
@@ -207,6 +207,8 @@
                         <span class="text-028cd3"><i class="fas fa-check"></i></span> 暖風機、排風扇、鏡櫃、藝術鏡、置物架、毛巾桿
                     </p>
                 </div>
+
+                <div class="col-12 my-5 py-4 d-md-none"></div>
             </div>
         </div>
 

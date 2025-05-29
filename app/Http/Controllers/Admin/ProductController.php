@@ -50,6 +50,9 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
+        $input['intro'] = $input['intro'] ?? "";
+        $input['details'] = $input['details'] ?? "";
+
         $product = $this->productRepository->create($input);
 
         // 處理產品圖片上傳
@@ -116,7 +119,11 @@ class ProductController extends AppBaseController
             return redirect(route('admin.products.index'));
         }
 
-        $product = $this->productRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['intro'] = $input['intro'] ?? "";
+        $input['details'] = $input['details'] ?? "";
+
+        $product = $this->productRepository->update($input, $id);
 
         // 計算更新後的圖片數量
         $existingImageCount = $product->images->count();
