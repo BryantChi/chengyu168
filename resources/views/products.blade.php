@@ -79,8 +79,7 @@
                                                 $product_img = \App\Models\Admin\ProductImage::where(
                                                     'product_id',
                                                     $product->id,
-                                                )
-                                                    ->orderBy('sort_order', 'asc')
+                                                )->orderBy('sort_order', 'asc')
                                                     ->first();
                                             @endphp
                                             <img src="{{ asset('uploads/' . $product_img->image_path) }}" class="img-fluid"
